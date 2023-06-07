@@ -165,7 +165,7 @@ class _LikeTavState extends State<LikeTab> {
                               child: RichText(
                                   text: const TextSpan(children: [
                                 TextSpan(
-                                  text: "Priyanka Patel",
+                                  text: "Jack John",
                                   style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.black,
@@ -460,7 +460,7 @@ class _LikeTavState extends State<LikeTab> {
                               child: RichText(
                                   text: const TextSpan(children: [
                                 TextSpan(
-                                  text: "Priyanka Patel",
+                                  text: "Davin Rechard",
                                   style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.black,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagramflutter/hometab/home/home_tab.dart';
+import 'package:instagramflutter/hometab/home_tab.dart';
 import 'package:instagramflutter/hometab/like_tab.dart';
 import 'package:instagramflutter/hometab/profile_tab.dart';
 import 'package:instagramflutter/hometab/reels_tab.dart';
@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black54),
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),

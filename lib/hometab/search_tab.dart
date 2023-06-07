@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:instagramflutter/hometab/home/search/explore.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class SearchTab extends StatefulWidget {
 }
 
 class _SearchTabState extends State<SearchTab> {
+
   final List<String> images = [
     "https://imgflip.com/s/meme/Unpopular-Opinion-Puffin.jpg",
     "https://imgflip.com/s/meme/Grumpy-Cat.jpg",
@@ -26,6 +28,7 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
           body: Column(
@@ -46,7 +49,16 @@ class _SearchTabState extends State<SearchTab> {
             child: StaggeredGridView.countBuilder(
               crossAxisCount: 4,
               itemCount: images.length,
-              itemBuilder: (BuildContext context, int index) => _item(index),
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+              onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Explore(  image:images[index])),
+
+
+                    );                  },
+                  child: _item(index)),
               staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
               crossAxisSpacing: 0.0,
             ),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagramflutter/comman/comman_widget.dart';
+import 'package:instagramflutter/comman/strings.dart';
+import 'package:instagramflutter/hometab/profile/edit_profile.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({Key? key}) : super(key: key);
@@ -48,27 +50,32 @@ class _ProfileTabState extends State<ProfileTab> {
                     ],
                   ),
                   Row(
-                    children: const [
+                    children:  [
                       Icon(
                         Icons.add_box_outlined,
-                        size: 25,
+                        size: 30,
                         color: Colors.black,
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      Icon(
-                        Icons.menu_outlined,
-                        size: 25,
-                        color: Colors.black,
-                      )
+                      InkWell(
+                        onTap: (){
+                          openBottomsheet();
+                          },
+                        child: Icon(
+                          Icons.menu_outlined,
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 15.0, left: 10, right: 10),
+              padding:  EdgeInsets.only(top: 15.0, left: 10, right: 10),
               child: Container(
                 height: 90,
                 child: Row(
@@ -155,7 +162,9 @@ class _ProfileTabState extends State<ProfileTab> {
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xffefefef), // background
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            _navigateToEditProfileScreen(context);
+                          },
                           child: Padding(
                             padding:
                                 const EdgeInsets.only(top: 2.0, bottom: 2.0),
@@ -325,5 +334,164 @@ class _ProfileTabState extends State<ProfileTab> {
         ),
       )),
     );
+  }
+  void openBottomsheet() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await showModalBottomSheet(
+        isScrollControlled: true,
+          context: context,
+          builder: (builder) {
+            return Wrap(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          topRight: Radius.circular(10.0))),
+                  child: Column(
+
+                    children: [
+
+                      Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Container(
+                            width: 40,
+                            height: 5,
+                            alignment: Alignment.center,
+                            color: Colors.grey[600],
+                          )),
+
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.settings,size: 30,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.settings_and_privacy,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.access_time_outlined,size: 30,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.your_activity,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+
+
+
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.access_time_sharp,size: 30,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.archive,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.qr_code,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.qr_code,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.save_alt,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.save,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.wallet,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.orders_and_payment,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.blinds_closed,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.close_friends,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.star_border,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.favourite,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.group,size: 30),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child:  CommanWidget.textLayout(strings.group_peofiles,13,Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+
+                    ],
+                  ),
+                ),
+              ],
+            );
+          });
+    });
+  }
+
+  void _navigateToEditProfileScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()));
   }
 }
