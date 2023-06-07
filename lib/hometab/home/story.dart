@@ -152,7 +152,7 @@ class _StoryState extends State<Story> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: CommanWidget.textLayout(
-                                  "Yancy Davies", 9, Colors.black),
+                                  'Yancy Davies', 9, Colors.black),
                             )
                           ],
                         ),
